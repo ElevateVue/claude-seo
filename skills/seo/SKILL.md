@@ -16,7 +16,7 @@ metadata:
 
 **Runtime:** Run bundled Python tools through `claude-seo run <script.py>`. Plugin
 installs expose this command automatically. Repository users run
-`./bin/claude-seo`; manual installers rewrite the command to the isolated
+`./cli/claude-seo`; manual installers rewrite the command to the isolated
 launcher path. Never invoke bundled scripts with a bare Python interpreter.
 
 Comprehensive SEO analysis across all industries (SaaS, local services,

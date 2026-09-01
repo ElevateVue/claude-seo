@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_unix_installer_delegates_to_runtime_without_global_pip() -> None:
     text = (ROOT / "install.sh").read_text(encoding="utf-8")
-    assert '"${SKILL_DIR}/bin/claude-seo" setup' in text
+    assert '"${SKILL_DIR}/cli/claude-seo" setup' in text
     assert "pip install --user" not in text
     assert "python3 -m venv" not in text
     assert "claude-seo run" in text
@@ -30,7 +30,7 @@ def test_windows_installer_delegates_to_runtime_without_path_mutation() -> None:
 
 
 def test_launcher_is_executable_and_uses_safe_exec() -> None:
-    launcher = ROOT / "bin/claude-seo"
+    launcher = ROOT / "cli/claude-seo"
     assert launcher.stat().st_mode & 0o100
     text = launcher.read_text(encoding="utf-8")
     assert 'exec py -3 "${runtime}" "$@"' in text
